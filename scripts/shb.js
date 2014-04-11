@@ -261,3 +261,17 @@
     }
    }
   })();
+
+  //Following function reads data- attributes form div and calls SHB.build based on that
+  //This function uses jQuery, don't forget to include it.
+  function SHBdataBuild(element){
+    var url = $(element).data('url');
+    var title = $(element).data('title');
+    var desc = $(element).data('desc');
+    SHB.build({
+      elementID: element,
+    })
+  }
+  $(document).ready(function(){
+    SHBdataBuild('#shbdata');
+  })
