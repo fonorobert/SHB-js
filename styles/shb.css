@@ -5,16 +5,6 @@ i.linkin,   span.linkin{ color: #007bb6; }
 i.vk,       span.vk{     color: #45668e; }
 i.pinterest,span.pinterest{color: #cb2027;}
 
-/*Special classes for surfingbird*/
-i.surfingbird{ max-height: 12px; min-width: 25%; }
-i.surfingbird::before{ 
-   content: url(http://bootstrap-ru.com/cdn/i/surf.png); 
-   position: relative;
-   left:0px;
-   top: -7px;
-   float: left;
-}
-
 /*Google +1 button styles:*/
 .google-plus-one{
    overflow: hidden;
