@@ -15,7 +15,7 @@ Supported social networks:
 
 
 ##Usage
-####1) Download the needed socialbuttons.css and socialbuttons.js files
+####1) Download the needed [socialbuttons.css](https://raw.githubusercontent.com/fonorobert/SocialButtons/master/styles/socialbuttons.css) and [socialbuttons.js](https://raw.githubusercontent.com/fonorobert/SocialButtons/master/scripts/socialbuttons.js) files
 
 ####2) Include SocialButtons css and js files
 
