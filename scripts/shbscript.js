@@ -29,10 +29,11 @@ function linkedin (element, url){
 	$(element).append('<a href="http://www.linkedin.com/shareArticle?' + url + '" target= "_blank" class="btn btn-default"><i class="fa fa-linkedin fa-lg linkedin"></i></a>');
 }
 
-function pinterest (element, url, media){
+function pinterest (element, url, media, description){
 	if (url != undefined){var url= 'url=' + url;}
 	if (media != undefined){var media= 'media=' + media;}
-	$(element).append('<a href="http://www.linkedin.com/shareArticle?' + url + '&' + media + '" target= "_blank" class="btn btn-default"><i class="fa fa-pinterest fa-lg pinterest"></i></a>');
+	if (description != undefined){var description = 'description=' + description;}
+	$(element).append('<a href="http://www.pinterest.com/pin/create/button/?' + url + '&' + media + '&' + description + '" target= "_blank" class="btn btn-default"><i class="fa fa-pinterest fa-lg pinterest"></i></a>');
 }
 
 
@@ -40,7 +41,14 @@ function pinterest (element, url, media){
 //Main caller
 
 function SHB(arg) {
-	var element = arg.element;
+	if (arg.element == undefined)
+		{
+			var element = arg
+		}
+		else
+		{
+			var element = arg.element;
+		}
 	var url = $(element).data('url');
 	url = url.replace('http://', 'http%3A%2F%2F');
 	var title = $(element).data('title');
@@ -48,15 +56,15 @@ function SHB(arg) {
 	var hashtags = $(element).data('hashtags');
 	var description = $(element).data('description');
 	var media = $(element).data('media');
-	media = media.replace('http://', 'http%3A%2F%2F');
+	if (media != undefined) {media = media.replace('http://', 'http%3A%2F%2F');}
 	if (arg.fb != undefined || arg.twitter != undefined || arg.google != undefined || arg.linkedin != undefined || arg.pinterest != undefined || arg.tumblr != undefined) {var custom = true}
 	if (custom == true){
 		if (arg.fb == true) {fbShare(element, url)}
 		if (arg.twitter == true) {twitter(element, url, title, via, hashtags)}
 		if (arg.tumblr == true) {tumblr(element, url, title, description)}
 		if (arg.google == true) {googleShare(element, url)}
-		if (arg.linkedn == true) {linkedin(element, url)}
-		if (arg.pinterest == true) {pinterest(element, url, media)}
+		if (arg.linkedin == true) {linkedin(element, url)}
+		if (arg.pinterest == true) {pinterest(element, url, media, description)}
 		}
 	else {
 		fbShare(element, url);
@@ -64,12 +72,6 @@ function SHB(arg) {
 		tumblr(element, url, title, description);
 		googleShare(element, url);
 		linkedin(element, url);
-		pinterest(element, url, media);
+		pinterest(element, url, media, description);
 	}
 }
-
-$(document).ready(function(){
-	SHB({
-		element : '#shbdata'
-	});
-})
