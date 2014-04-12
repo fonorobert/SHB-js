@@ -40,7 +40,7 @@ function pinterest (element, url, media, description){
 
 //Main caller
 
-function SHB(arg) {
+function SocialButtons(arg) {
 	if (arg.element == undefined)
 		{
 			var element = arg

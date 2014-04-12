@@ -67,7 +67,7 @@ All buttons:
 
 ```html
 <script type="application/javascript">
-	SocialButtons('#socialbuttons')
+	SHB('#socialbuttons')
 </script>
 ```
 
@@ -75,7 +75,7 @@ Only a select few:
 
 ```html
 <script type="application/javascript">
-    SocialButtons({
+    SHB({
       element: '#socialbuttons',
       fb: true,
       twitter: true,
